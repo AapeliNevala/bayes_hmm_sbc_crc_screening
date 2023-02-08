@@ -1,0 +1,26 @@
+par; latex_par; latex_par_2
+mu1_ref1;$\\lambda_{r12}^1 = exp(\\beta^r_{12} + \\beta^{1}_{12}) \\lambda_{12}$;$\\lambda_{r12}^1$
+mu1_ref2;$\\lambda_{r12}^2 = exp(\\beta^r_{12} + \\beta^{2}_{12}) \\lambda_{12}$;$\\lambda_{r12}^2$
+mu1_ref3;$\\lambda_{r12}^3 = exp(\\beta^r_{12} + \\beta^{3}_{12}) \\lambda_{12}$;$\\lambda_{r12}^3$
+mu2_ref1;$\\lambda_{r23}^1 = exp(\\beta^r_{23} + \\beta^{1}_{23}) \\lambda_{23}$;$\\lambda_{r23}^1$
+mu2_ref2;$\\lambda_{r23}^2 = exp(\\beta^r_{23} + \\beta^{2}_{23}) \\lambda_{23}$;$\\lambda_{r23}^2$
+mu2_ref3;$\\lambda_{r23}^3 = exp(\\beta^r_{23} + \\beta^{3}_{23}) \\lambda_{23}$;$\\lambda_{r23}^3$
+mu3_ref1;$\\lambda_{r34}^1 = exp(\\beta^r_{34} + \\beta^{1}_{34}) \\lambda_{34}$;$\\lambda_{r34}^1$
+mu3_ref2;$\\lambda_{r34}^2 = exp(\\beta^r_{34} + \\beta^{2}_{34}) \\lambda_{34}$;$\\lambda_{r34}^2$
+mu3_ref3;$\\lambda_{r34}^3 = exp(\\beta^r_{34} + \\beta^{3}_{34}) \\lambda_{34}$;$\\lambda_{r34}^3$
+mu11;$\\lambda_{12}^1 = exp(\\beta^{1}_{12}) \\lambda_{12}$;$\\lambda_{12}^1$
+mu12;$\\lambda_{12}^2 = exp(\\beta^{2}_{12}) \\lambda_{12}$;$\\lambda_{12}^2$
+mu13;$\\lambda_{12}^3 = exp(\\beta^{3}_{12}) \\lambda_{12}$;$\\lambda_{12}^3$
+mu21;$\\lambda_{23}^1 = exp(\\beta^{1}_{23}) \\lambda_{23}$;$\\lambda_{23}^1$
+mu22;$\\lambda_{23}^2 = exp(\\beta^{2}_{23}) \\lambda_{23}$;$\\lambda_{23}^2$
+mu23;$\\lambda_{23}^3 = exp(\\beta^{3}_{23}) \\lambda_{23}$;$\\lambda_{23}^3$
+mu31;$\\lambda_{34}^1 = exp(\\beta^{1}_{34}) \\lambda_{34}$;$\\lambda_{34}^1$
+mu32;$\\lambda_{34}^2 = exp(\\beta^{2}_{34}) \\lambda_{34}$;$\\lambda_{34}^2$
+mu33;$\\lambda_{34}^3 = exp(\\beta^{3}_{34}) \\lambda_{34}$;$\\lambda_{34}^3$
+mu4;$\\lambda_{45}$;$\\lambda_{45}$
+mu1;$\\lambda_{12}$;$\\lambda_{12}$
+mu2;$\\lambda_{23}$;$\\lambda_{23}$
+mu3;$\\lambda_{34}$;$\\lambda_{34}$
+mu1_ref;$\\lambda_{r12} = exp(\\beta^{r}_{12})\\lambda_{12}$;$\\lambda_{r12}$
+mu2_ref;$\\lambda_{r23} = exp(\\beta^{r}_{23})\\lambda_{23}$;$\\lambda_{r23}$
+mu3_ref;$\\lambda_{r34} = exp(\\beta^{r}_{34})\\lambda_{34}$;$\\lambda_{r34}$

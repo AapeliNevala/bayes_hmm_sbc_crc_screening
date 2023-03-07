@@ -42,13 +42,13 @@ ggsave(filename = "final_plots/sbc_const_advi_w_meanfield_sbc.png", sbc_results_
 
 
 
-ggpubr::ggarrange(sbc_results_const_advi_m_meanfield_bars[[2]], sbc_bars_const_m[[2]], sbc_bars_const_m_hmc[[2]], nrow = 3) ->
+ggpubr::ggarrange(sbc_bars_const_m[[2]], sbc_bars_const_m_hmc[[2]], nrow = 2) ->
   all_sbc_men
 ggsave(filename = "final_plots/all_sbc_men.png", all_sbc_men, device = "png", dpi = 600)
 
 
-ggpubr::ggarrange(sbc_results_const_advi_w_meanfield_bars[[2]], sbc_bars_const_w[[2]], sbc_bars_const_w_hmc[[2]], nrow = 3) ->
+ggpubr::ggarrange(sbc_bars_const_w[[2]], sbc_bars_const_w_hmc[[2]], nrow = 2) ->
   all_sbc_women
-ggsave(filename = "final_plots/all_sbc_men.png", all_sbc_women, device = "png", dpi = 600)
+ggsave(filename = "final_plots/all_sbc_women.png", all_sbc_women, device = "png", dpi = 600)
 
 

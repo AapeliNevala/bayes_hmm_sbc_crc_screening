@@ -1,3 +1,6 @@
+## Functions used for creating figures in "Bayesian hidden Markov model for natural history of colorectal cancer: 
+## handling misclassified observations, varying observation schemes and unobserved data"
+
 posterior_state_probs_from_draws <- function(model_fit, time_up, time_lo, KM = NULL) {
   model_fit$draws() %>% posterior::summarise_draws() %>% 
     filter(stringr::str_detect(variable, "state_probs")) %>% 

@@ -1,0 +1,20 @@
+---
+title: 'Code supplement for Bayesian hidden Markov model for natural history of colorectal cancer: handling misclassified observations, varying observation schemes and unobserved data'
+author: "Aapeli Nevala"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## What do these folders contain?
+
+The files included here are a code supplement for Bayesian hidden Markov model for natural history of colorectal cancer: handling misclassified observations, varying observation schemes and unobserved data.
+
+The models programmed with Stan are in the folder stan_code, R codes for running the Stan-programmed models are in the folder R. R-folder also contains programmes for data generation.
+
+Data-folder does not contain original data for sampling. Data folder contains Latex-conversion files for figures and population-level mortality rates for data generation. Also, the SBC results used in the paper are in the data folder.
+
+In case of need for support contact aapeli.nevala\@cancer.fi

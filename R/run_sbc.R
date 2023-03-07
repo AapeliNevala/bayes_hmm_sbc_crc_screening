@@ -69,10 +69,10 @@ sbc_init_data_const_w <- list(
 
 
 five_sm_const_rate <- cmdstan_model(
-  "stan_code/5sm/5_sm_constant_rates.stan",
+  "stan_code/5_sm_constant_rates.stan",
   compile = TRUE,
   cpp_options = list(stan_threads = TRUE),
-  include_paths = c("./stan_code/5sm"),
+  include_paths = c("./stan_code"),
   dir = file.path(here::here(), "model_files"),
   force_recompile = F
 )
@@ -83,34 +83,60 @@ clusterExport(cl_1, varlist = ls())
 clusterEvalQ(cl_1, expr = (source("R/5sm_data_generating_functions.R")))
 
 
-run_one_sim(50,  sbc_init_data_tv_m, five_sm_tv_rate)
+run_one_sim_advi(50,  sbc_init_data_const_m, five_sm_const_rate, algorithm = "fullrank")
 
 # Women, constant rates model ---------------------------------------------
 
 sbc_results_const_advi_w <- parLapply(cl_1, 1:500, function(i) {
-  try(run_one_sim_advi(50,  sbc_init_data_const_w, five_sm_const_rate), TRUE)
+  try(run_one_sim_advi(50,  sbc_init_data_const_w, five_sm_const_rate, algorithm = "fullrank"), TRUE)
 })
 
 saveRDS(sbc_results_const_advi_w, "data/sbc_results_constant_w.RDS")
 
 
 sbc_results_const_hmc_w <- parLapply(cl_1, 1:500, function(i) {
-  try(run_one_sim_hmc(50,  sbc_init_data_const_w, five_sm_const_rate), TRUE)
+  try(run_one_sim_hmc(250,  sbc_init_data_const_w, five_sm_const_rate), TRUE)
 })
 
-saveRDS(sbc_results_const_advi_w, "data/sbc_results_constant_w_hmc.RDS")
+saveRDS(sbc_results_const_hmc_w, "data/sbc_results_constant_w_hmc.RDS")
 
 
-# Men, constant rates model -----------------------------------------------
+# Men, constant rates model ADVI -----------------------------------------------
 
 sbc_results_const_advi_m <- parLapply(cl_1, 1:500, function(i) {
-  try(run_one_sim_advi(50,  sbc_init_data_const_m, five_sm_const_rate), TRUE)
+  try(run_one_sim_advi(50,  sbc_init_data_const_m, five_sm_const_rate, algorithm = "fullrank"), TRUE)
 })
 
 saveRDS(sbc_results_const_advi_m, "data/sbc_results_constant_m.RDS")
 
+# Men, constant rates model HMC -----------------------------------------------
+
+sbc_results_const_hmc_m <- parLapply(cl_1, 1:500, function(i) {
+  try(run_one_sim_hmc(250,  sbc_init_data_const_m, five_sm_const_rate), TRUE)
+})
+
+saveRDS(sbc_results_const_hmc_m, "data/sbc_results_constant_m_hmc.RDS")
 
 
+
+# Meanfields --------------------------------------------------------------
+
+
+
+sbc_results_const_advi_m_meanfield <- parLapply(cl_1, 1:500, function(i) {
+  try(run_one_sim_advi(50,  sbc_init_data_const_m, five_sm_const_rate, algorithm = "meanfield"), TRUE)
+})
+
+saveRDS(sbc_results_const_advi_m_meanfield, "data/sbc_results_constant_m_meanfield.RDS")
+
+
+
+
+sbc_results_const_advi_w_meanfield <- parLapply(cl_1, 1:500, function(i) {
+  try(run_one_sim_advi(50,  sbc_init_data_const_w, five_sm_const_rate, algorithm = "meanfield"), TRUE)
+})
+
+saveRDS(sbc_results_const_advi_w_meanfield, "data/sbc_results_constant_w_meanfield.RDS")
 
 
 

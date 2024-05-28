@@ -194,7 +194,6 @@ data {
   real<lower = 0, upper = 1> S_aa_prior;
   
   int entry_int;
-  // int N_cutoffs;
   real ref_proportions;
 }
 
@@ -224,14 +223,10 @@ transformed parameters {
   vector[1] mu1_ref = exp(mu_raw_ref_1) * mu1;
   vector[1] mu2_ref = exp(mu_raw_ref_2) * mu2;
   vector[1] mu3_ref = exp(mu_raw_ref_3) * mu3;
-  // vector<lower = 0>[N_cutoffs+1] mu4_ref = exp(mu4_raw_ref) * mu4;
-  // real<lower = 0, upper = 1> Spec;
-
 
   vector[1] mu1_total_pop = mu1_ref * ref_proportions + mu1 * (1-ref_proportions);
   vector[1] mu2_total_pop = mu2_ref * ref_proportions + mu2 * (1-ref_proportions);
   vector[1] mu3_total_pop = mu3_ref * ref_proportions + mu3 * (1-ref_proportions);
-  // vector<lower = 0>[N_cutoffs+1] mu4_total_pop = mu4_ref .* ref_proportions + mu4 .* (1-ref_proportions);
 
 }
 
@@ -299,28 +294,5 @@ generated quantities {
   matrix[5,99-entry_int] state_probs_general = generated_state_probs(mu1_total_pop, mu2_total_pop, mu3_total_pop, mu4, entry_int);
   matrix[5,99-entry_int] state_probs_refusers = generated_state_probs(mu1_ref, mu2_ref, mu3_ref, mu4, entry_int);
   matrix[5,99-entry_int] state_probs_attenders = generated_state_probs(mu1, mu2, mu3, mu4, entry_int);
-
-  // matrix[K_screen, 4] state_occ_person[N_screen];
-  // matrix[N_screen, K_screen] obs_person;
-  // 
-  // 
-  // for(i in 1:N_screen) {
-  //   state_occ_person[i] = prediction_loop(
-  //     observed_data[i,,1],
-  //     observed_data[i,,2],
-  //     mu1, mu2, mu3, mu4,
-  //     phii
-  //   )
-  // }
-  // 
-  // for(i in 1:N_screen) {
-  //   for(k in 1:K_screen) {
-  //     if(observed_data[i,,2] == 1 || observed_data[i,,2] == 3 || observed_data[i,,2] == 4 || observed_data[i,,2] == 5 || observed_data[i,,2] == 7) {
-  //       obs_person[i,k] = multinomial_rng(exp(state_occ_person[i][k,1:4])/sum(exp(state_occ_person[i][k,1:4])));
-  //     } else {
-  //       obs_person[i,k] = 0;
-  //     }
-  //   }
-  // }
 
 }
